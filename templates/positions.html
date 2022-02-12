@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/positions.css')}}">
+    <title>Yoga Care</title>
+</head>
+<body>
+    <header>
+        <h2><a href="/">Yoga Care</a></h2>
+        <nav>
+          <li><a href="/">Home</a></li>
+          <li><a href="/positions">Positions</a></li>
+        </nav>
+      </header>
+    <div class="main">
+        <h1>12 Basic Yoga poses</h1>
+        <ul class="cards">
+            {% for user in userDetails %}
+          <li class="cards_item">
+            <div class="card">
+              <div class="card_image"><img src={{user[2]}} alt={{user[1]}}></div>
+              <div class="card_content">
+                <h2 class="card_title">{{user[1]}}</h2>
+                <p class="card_text">{{user[3]}}</p>
+              </div>
+            </div>
+          </li>
+          {% endfor %}
+          </ul>
+          </div>
+</body>
+</html>
