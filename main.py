@@ -28,7 +28,13 @@ def positions():
     if resultValue > 0:
         userDetails = cur.fetchall()
         return render_template('positions.html', userDetails=userDetails)
-
+@app.route("/videos")
+def videos():
+    cur = mysql.connection.cursor()
+    VideoLink = cur.execute("SELECT * FROM video")
+    if VideoLink>0:
+        videoValues = cur.fetchall()
+    return render_template('videos.html', videoValues=videoValues)
 
 if (__name__ == '__main__'):
     app.run(debug=True)
